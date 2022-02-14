@@ -23,6 +23,22 @@ public class IndexStorageTest {
     }
 
     @Test
+    public void testGetExeption01() {
+        IndexStorage indexStorage = new IndexStorage(0);
+        IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            indexStorage.get(0);
+        });
+    }
+
+    @Test
+    public void testGetExeption02() {
+        IndexStorage indexStorage = new IndexStorage(0);
+        IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            indexStorage.get(-1);
+        });
+    }
+
+    @Test
     public void testReverse() {
         IndexStorage indexStorage = new IndexStorage(5);
         int[] expected = {4, -3, 2, -1, 0};
